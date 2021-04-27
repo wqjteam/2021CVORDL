@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
+import argparse
 import os
+
 import h5py
 import numpy as np
-from collections import Iterator,Iterable,Generator
-import argparse
 
 import src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras  as VGGNet
 
