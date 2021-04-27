@@ -22,7 +22,7 @@ class VGGNet:
     Use vgg16 model to extract features
     Output normalized feature vector
     '''
-    def extract_feat(self, imcondag_path):
+    def extract_feat(self, img_path):
         img = image.load_img(img_path, target_size=(self.input_shape[0], self.input_shape[1]))
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
