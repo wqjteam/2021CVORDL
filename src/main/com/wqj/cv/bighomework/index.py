@@ -2,6 +2,7 @@
 import os
 import h5py
 import numpy as np
+from collections import Iterator,Iterable,Generator
 import argparse
 
 import src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras  as VGGNet
@@ -19,7 +20,12 @@ args = vars(ap.parse_args())
 
 
 def get_imlist(path):
-    return [os.path.join(path, f) for f in os.listdir(path) if f.endswith('.jpg')]
+    fs = []
+    for root, dirs, files in os.walk(path):
+        root
+        for f in files:
+            yield os.path.join(root, f)
+        # fs.append(os.path.join(root, f))
 
 
 '''
@@ -29,6 +35,9 @@ if __name__ == "__main__":
 
     db = args["database"]
     img_list = get_imlist(db)
+    # img_list = get_imlist("D:\develop_disk\python/2021CVORDL\src\main\com\wqj\cv")
+    for img in img_list:
+        print(img)
 
     print("--------------------------------------------------")
     print("         feature extraction starts")
