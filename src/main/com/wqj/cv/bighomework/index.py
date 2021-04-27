@@ -24,7 +24,8 @@ def get_imlist(path):
     for root, dirs, files in os.walk(path):
         root
         for f in files:
-            yield os.path.join(root, f)
+            if(f.endswith(".jpg") or f.endswith(".png")):
+                yield os.path.join(root, f)
         # fs.append(os.path.join(root, f))
 
 
