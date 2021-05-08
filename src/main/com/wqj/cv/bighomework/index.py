@@ -5,7 +5,11 @@ import os
 import h5py
 import numpy as np
 
-from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras  import VGGNet
+from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras import VGGNet
+
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = curPath[:curPath.find("2021CVORDL\\") + len("2021CVORDL\\")]
+# dataPath = rootPath + "Input/MLWorkHome/experiment3/data.txt"
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-database", required=True,
@@ -13,6 +17,8 @@ ap.add_argument("-database", required=True,
 ap.add_argument("-index", required=True,
                 help="Name of index file")
 args = vars(ap.parse_args())
+args["database"] = rootPath + args["database"]
+args["index"] = rootPath + args["index"]
 
 '''
  Returns a list of filenames for all jpg images in a directory. 
@@ -24,13 +30,14 @@ def get_imlist(path):
     for root, dirs, files in os.walk(path):
         root
         for f in files:
-            if(f.endswith(".jpg") or f.endswith(".png")):
+            if (f.endswith(".jpg") or f.endswith(".png")):
                 yield os.path.join(root, f)
         # fs.append(os.path.join(root, f))
 
 
 '''
  Extract features and index the images
+ -database src\main\resources\com.wqj.cv\bighomework\database -index src/featureCNN.h5
 '''
 if __name__ == "__main__":
 

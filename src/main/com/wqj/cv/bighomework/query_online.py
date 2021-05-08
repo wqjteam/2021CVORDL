@@ -3,10 +3,17 @@ from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras import VGGNet
 
 import numpy as np
 import h5py
-
+import os
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import argparse
+
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = curPath[:curPath.find("2021CVORDL\\") + len("2021CVORDL\\")]
+# dataPath = rootPath + "Input/MLWorkHome/experiment3/data.txt"
+"""
+-query src\main\resources\com.wqj.cv\bighomework\database\674.jpg -index src/featureCNN.h5 -result src\main\resources\com.wqj.cv\bighomework\database
+"""
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-query", required=True,
@@ -16,6 +23,9 @@ ap.add_argument("-index", required=True,
 ap.add_argument("-result", required=True,
                 help="Path for output retrieved images")
 args = vars(ap.parse_args())
+args["index"] = rootPath + args["index"]
+args["query"] = rootPath + args["query"]
+args["result"] = rootPath + args["result"]
 
 # read in indexed images' feature vectors and corresponding image names
 h5f = h5py.File(args["index"], 'r')
