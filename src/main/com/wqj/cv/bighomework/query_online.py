@@ -12,7 +12,7 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = curPath[:curPath.find("2021CVORDL\\") + len("2021CVORDL\\")]
 # dataPath = rootPath + "Input/MLWorkHome/experiment3/data.txt"
 """
--query src\main\resources\com.wqj.cv\bighomework\database\674.jpg -index src/featureCNN.h5 -result src\main\resources\com.wqj.cv\bighomework\database
+-query src\main\resources\com\wqj\cv\bighomework\database\674.jpg -index src/featureCNN.h5 -result src\main\resources\com\wqj\cv\bighomework\database
 """
 
 ap = argparse.ArgumentParser()

@@ -37,7 +37,7 @@ def get_imlist(path):
 
 '''
  Extract features and index the images
- -database src\main\resources\com.wqj.cv\bighomework\database -index src/featureCNN.h5
+ -database src\main\resources\com\wqj\cv\bighomework\database -index src/featureCNN.h5
 '''
 if __name__ == "__main__":
 
