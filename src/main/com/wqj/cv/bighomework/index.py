@@ -5,7 +5,7 @@ import os
 import h5py
 import numpy as np
 
-import src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras  as VGGNet
+from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras  import VGGNet
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-database", required=True,
@@ -35,7 +35,7 @@ def get_imlist(path):
 if __name__ == "__main__":
 
     db = args["database"]
-    img_list = get_imlist(db)
+    img_list = list(get_imlist(db))
     # img_list = get_imlist("D:\develop_disk\python/2021CVORDL\src\main\com\wqj\cv")
     for img in img_list:
         print(img)
