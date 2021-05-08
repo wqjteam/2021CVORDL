@@ -39,7 +39,12 @@ print("--------------------------------------------------")
 
 # read and show query image
 queryDir = args["query"]
-queryImg = mpimg.imread(queryDir)
+if (str(queryDir).endswith("png")):
+
+    queryImg = mpimg.imread(queryDir,0)
+else:
+    queryImg = mpimg.imread(queryDir)
+plt.figure(0)
 plt.title("Query Image")
 plt.imshow(queryImg)
 plt.show()
@@ -63,7 +68,11 @@ print("top %d images in order are: " % maxres, imlist)
 
 # show top #maxres retrieved result one by one
 for i, im in enumerate(imlist):
-    image = mpimg.imread(args["result"] + "/" + str(im, encoding='utf-8'))
+    if (str(queryDir).endswith("png")):
+        image = mpimg.imread(args["result"] + "/" + str(im, encoding='utf-8'),0)
+    else:
+        image = mpimg.imread(args["result"] + "/" + str(im, encoding='utf-8'))
+    plt.figure(i + 1)
     plt.title("search output %d" % (i + 1))
     plt.imshow(image)
     plt.show()
