@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras import VGGNet
+from src.main.com.wqj.cv.bighomework.feature_cnn_keras import VGGNet
 
 import numpy as np
 import h5py

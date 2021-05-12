@@ -5,7 +5,7 @@ import os
 import h5py
 import numpy as np
 
-from src.main.com.wqj.cv.bighomework.extract_cnn_vgg16_keras import VGGNet
+from src.main.com.wqj.cv.bighomework.feature_cnn_keras import VGGNet
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = curPath[:curPath.find("2021CVORDL\\") + len("2021CVORDL\\")]
